@@ -1,0 +1,81 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #181820;
+  --border: #2a2a3a;
+  --text: #e0e0f0;
+  --text-muted: #6a6a8a;
+  --green: #00d084;
+  --yellow: #f0b429;
+  --orange: #f97316;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --cyan: #06b6d4;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.panel-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.risk-LOW    { color: var(--green); }
+.risk-MEDIUM { color: var(--yellow); }
+.risk-HIGH   { color: var(--orange); }
+.risk-CRITICAL { color: var(--red); animation: pulse 0.8s ease-in-out infinite alternate; }
+
+@keyframes pulse { from { opacity: 1; } to { opacity: 0.4; } }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.badge-LOW    { background: #00d08422; color: var(--green); }
+.badge-MEDIUM { background: #f0b42922; color: var(--yellow); }
+.badge-HIGH   { background: #f9731622; color: var(--orange); }
+.badge-CRITICAL { background: #ef444422; color: var(--red); }
+
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.dot-LOW    { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot-MEDIUM { background: var(--yellow); }
+.dot-HIGH   { background: var(--orange); }
+.dot-CRITICAL { background: var(--red); animation: pulse 0.5s infinite alternate; }
